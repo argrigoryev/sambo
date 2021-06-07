@@ -2,15 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.global.sass';
 
-const Hello = () => {
-  return <></>;
+import Strings from './Strings/strings';
+
+const Test = () => {
+  return (
+    <>
+      <span>{Strings.test}</span>
+    </>
+  );
 };
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Hello} />
+        <Route path="/" component={Test} />
       </Switch>
     </Router>
   );
