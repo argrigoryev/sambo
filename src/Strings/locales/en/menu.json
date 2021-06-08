@@ -17,6 +17,8 @@
   "minimize_command": "Minimize",
   "close_command": "Close",
   "bring_all_to_front_command": "Bring all to Front",
+  "file_command": "File",
+  "open_command": "Open",
   "help_command": "Help",
   "moscow_site_command": "Sambo Federation of Moscow",
   "russian_site_command": "Sambo Federation of Russia",

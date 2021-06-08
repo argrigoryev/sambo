@@ -17,6 +17,8 @@
   "minimize_command": "Убрать в Dock",
   "close_command": "Закрыть",
   "bring_all_to_front_command": "Все окна – на передний план",
+  "file_command": "Файл",
+  "open_command": "Открыть",
   "help_command": "Помощь",
   "moscow_site_command": "Федерация самбо Москвы",
   "russian_site_command": "Всероссийская федерация самбо",
