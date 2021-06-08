@@ -1,10 +1,10 @@
 import { Menu, BrowserWindow, MenuItemConstructorOptions } from 'electron';
 
-import { IDarwinMenuItemConstructorOptions } from './interfaces';
-
-import helpSubMenu from './helpSubMenu';
-import aboutSubMenu from './aboutSubMenu';
-import editSubMenu from './editSubMenu';
+import buildAboutSubMenu from './buildAboutSubMenu';
+import buildEditSubMenu from './buildEditSubMenu';
+import buildViewSubMenu from './buildViewSubMenu';
+import buildWindowSubMenu from './buildWindowSubMenu';
+import buildHelpSubMenu from './buildHelpSubMenu';
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -48,65 +48,13 @@ export default class MenuBuilder {
   }
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
-    const subMenuViewDev: MenuItemConstructorOptions = {
-      label: 'View',
-      submenu: [
-        {
-          label: 'Reload',
-          accelerator: 'Command+R',
-          click: () => {
-            this.mainWindow.webContents.reload();
-          },
-        },
-        {
-          label: 'Toggle Full Screen',
-          accelerator: 'Ctrl+Command+F',
-          click: () => {
-            this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
-          },
-        },
-        {
-          label: 'Toggle Developer Tools',
-          accelerator: 'Alt+Command+I',
-          click: () => {
-            this.mainWindow.webContents.toggleDevTools();
-          },
-        },
-      ],
-    };
-    const subMenuViewProd: MenuItemConstructorOptions = {
-      label: 'View',
-      submenu: [
-        {
-          label: 'Toggle Full Screen',
-          accelerator: 'Ctrl+Command+F',
-          click: () => {
-            this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
-          },
-        },
-      ],
-    };
-    const subMenuWindow: IDarwinMenuItemConstructorOptions = {
-      label: 'Window',
-      submenu: [
-        {
-          label: 'Minimize',
-          accelerator: 'Command+M',
-          selector: 'performMiniaturize:',
-        },
-        { label: 'Close', accelerator: 'Command+W', selector: 'performClose:' },
-        { type: 'separator' },
-        { label: 'Bring All to Front', selector: 'arrangeInFront:' },
-      ],
-    };
-
-    const subMenuView =
-      process.env.NODE_ENV === 'development' ||
-      process.env.DEBUG_PROD === 'true'
-        ? subMenuViewDev
-        : subMenuViewProd;
-
-    return [aboutSubMenu, editSubMenu, subMenuView, subMenuWindow, helpSubMenu];
+    return [
+      buildAboutSubMenu(),
+      buildEditSubMenu(),
+      buildViewSubMenu(this.mainWindow),
+      buildWindowSubMenu(),
+      buildHelpSubMenu(),
+    ];
   }
 
   buildDefaultTemplate() {
@@ -169,7 +117,7 @@ export default class MenuBuilder {
                 },
               ],
       },
-      helpSubMenu,
+      buildHelpSubMenu(),
     ];
 
     return templateDefault;
