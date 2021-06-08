@@ -1,4 +1,9 @@
 {
+  "about_command": "О",
+  "hide_command": "Скыть",
+  "hide_others_command": "Скрыть остальные",
+  "show_all_command": "Показать все",
+  "quit_command": "Завершить",
   "help_command": "Помощь",
   "moscow_site_command": "Федерация самбо Москвы",
   "russian_site_command": "Всероссийская федерация самбо",

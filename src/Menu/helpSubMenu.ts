@@ -4,7 +4,7 @@ import { MenuStrings } from '../Strings/strings';
 import UrlHelper from '../Helpers/urlHelper';
 import EmailHelper from '../Helpers/emailHelper';
 
-const subMenuHelp: MenuItemConstructorOptions = {
+const helpSubMenu: MenuItemConstructorOptions = {
   label: MenuStrings.help_command,
   submenu: [
     {
@@ -34,4 +34,4 @@ const subMenuHelp: MenuItemConstructorOptions = {
   ],
 };
 
-export default subMenuHelp;
+export default helpSubMenu;

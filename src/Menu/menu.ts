@@ -1,11 +1,9 @@
-import { app, Menu, BrowserWindow, MenuItemConstructorOptions } from 'electron';
+import { Menu, BrowserWindow, MenuItemConstructorOptions } from 'electron';
 
-import subMenuHelp from './subMenuHelp';
+import { IDarwinMenuItemConstructorOptions } from './interfaces';
 
-interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
-  selector?: string;
-  submenu?: DarwinMenuItemConstructorOptions[] | Menu;
-}
+import helpSubMenu from './helpSubMenu';
+import aboutSubMenu from './aboutSubMenu';
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -49,38 +47,7 @@ export default class MenuBuilder {
   }
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
-    const subMenuAbout: DarwinMenuItemConstructorOptions = {
-      label: 'Electron',
-      submenu: [
-        {
-          label: 'About ElectronReact',
-          selector: 'orderFrontStandardAboutPanel:',
-        },
-        { type: 'separator' },
-        { label: 'Services', submenu: [] },
-        { type: 'separator' },
-        {
-          label: 'Hide ElectronReact',
-          accelerator: 'Command+H',
-          selector: 'hide:',
-        },
-        {
-          label: 'Hide Others',
-          accelerator: 'Command+Shift+H',
-          selector: 'hideOtherApplications:',
-        },
-        { label: 'Show All', selector: 'unhideAllApplications:' },
-        { type: 'separator' },
-        {
-          label: 'Quit',
-          accelerator: 'Command+Q',
-          click: () => {
-            app.quit();
-          },
-        },
-      ],
-    };
-    const subMenuEdit: DarwinMenuItemConstructorOptions = {
+    const subMenuEdit: IDarwinMenuItemConstructorOptions = {
       label: 'Edit',
       submenu: [
         { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' },
@@ -134,7 +101,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuWindow: DarwinMenuItemConstructorOptions = {
+    const subMenuWindow: IDarwinMenuItemConstructorOptions = {
       label: 'Window',
       submenu: [
         {
@@ -154,7 +121,7 @@ export default class MenuBuilder {
         ? subMenuViewDev
         : subMenuViewProd;
 
-    return [subMenuAbout, subMenuEdit, subMenuView, subMenuWindow, subMenuHelp];
+    return [aboutSubMenu, subMenuEdit, subMenuView, subMenuWindow, helpSubMenu];
   }
 
   buildDefaultTemplate() {
@@ -217,7 +184,7 @@ export default class MenuBuilder {
                 },
               ],
       },
-      subMenuHelp,
+      helpSubMenu,
     ];
 
     return templateDefault;

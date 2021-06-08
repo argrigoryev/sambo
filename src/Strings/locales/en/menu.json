@@ -1,4 +1,9 @@
 {
+  "about_command": "About",
+  "hide_command": "Hide",
+  "hide_others_command": "Hide Others",
+  "show_all_command": "Show All",
+  "quit_command": "Quit",
   "help_command": "Help",
   "moscow_site_command": "Sambo Federation of Moscow",
   "russian_site_command": "Sambo Federation of Russia",
