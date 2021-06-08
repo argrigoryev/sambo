@@ -1,16 +1,14 @@
-import LocalizedStrings, { LocalizedStringsMethods } from 'react-localization';
+import LocalizedStrings from 'react-localization';
+
+import { IMenuStrings, IStrings } from './interfaces';
 
 import en from './locales/en/messages.json';
 import ru from './locales/ru/messages.json';
-
-export interface IStrings extends LocalizedStringsMethods {
-  help_command: string;
-  moscow_site_command: string;
-  russian_site_command: string;
-  contact_us_command: string;
-  report_problem_command: string;
-}
+import ru_menu from './locales/ru/menu.json';
 
 const Strings: IStrings = new LocalizedStrings({ en, ru });
 
 export default Strings;
+
+// TODO: support en_menu
+export const MenuStrings: IMenuStrings = ru_menu;

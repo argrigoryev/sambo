@@ -1,7 +1,3 @@
 {
-  "help_command": "Помощь",
-  "moscow_site_command": "Федерация самбо Москвы",
-  "russian_site_command": "Всероссийская федерация самбо",
-  "contact_us_command": "Связаться с нами",
-  "report_problem_command": "Сообщить о проблеме"
+  "test": "Локализация"
 }
