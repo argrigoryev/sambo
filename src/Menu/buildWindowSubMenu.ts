@@ -1,24 +1,24 @@
 import { IDarwinMenuItemConstructorOptions } from './interfaces';
 
-import { MenuStrings } from '../Strings/strings';
+import Strings from '../Strings/strings';
 
-function buildWindowSubMenu(): IDarwinMenuItemConstructorOptions {
+function buildWindowSubMenu(locale: string): IDarwinMenuItemConstructorOptions {
   return {
-    label: MenuStrings.window_command,
+    label: Strings.getMenu(locale).window_command,
     submenu: [
       {
-        label: MenuStrings.minimize_command,
+        label: Strings.getMenu(locale).minimize_command,
         accelerator: 'Command+M',
         selector: 'performMiniaturize:',
       },
       {
-        label: MenuStrings.close_command,
+        label: Strings.getMenu(locale).close_command,
         accelerator: 'Command+W',
         selector: 'performClose:',
       },
       { type: 'separator' },
       {
-        label: MenuStrings.bring_all_to_front_command,
+        label: Strings.getMenu(locale).bring_all_to_front_command,
         selector: 'arrangeInFront:',
       },
     ],

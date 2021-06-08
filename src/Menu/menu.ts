@@ -10,8 +10,11 @@ import buildFileSubMenu from './buldFileSubMenu';
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
 
-  constructor(mainWindow: BrowserWindow) {
+  locale: string;
+
+  constructor(locale: string, mainWindow: BrowserWindow) {
     this.mainWindow = mainWindow;
+    this.locale = locale;
   }
 
   buildMenu(): Menu {
@@ -50,19 +53,19 @@ export default class MenuBuilder {
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
     return [
-      buildAboutSubMenu(),
-      buildEditSubMenu(),
-      buildViewSubMenu(this.mainWindow),
-      buildWindowSubMenu(),
-      buildHelpSubMenu(),
+      buildAboutSubMenu(this.locale),
+      buildEditSubMenu(this.locale),
+      buildViewSubMenu(this.locale, this.mainWindow),
+      buildWindowSubMenu(this.locale),
+      buildHelpSubMenu(this.locale),
     ];
   }
 
   buildDefaultTemplate(): MenuItemConstructorOptions[] {
     return [
-      buildFileSubMenu(this.mainWindow),
-      buildViewSubMenu(this.mainWindow),
-      buildHelpSubMenu(),
+      buildFileSubMenu(this.locale, this.mainWindow),
+      buildViewSubMenu(this.locale, this.mainWindow),
+      buildHelpSubMenu(this.locale),
     ];
   }
 }

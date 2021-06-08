@@ -1,38 +1,38 @@
 import { IDarwinMenuItemConstructorOptions } from './interfaces';
-import { MenuStrings } from '../Strings/strings';
+import Strings from '../Strings/strings';
 
-function buildEditSubMenu(): IDarwinMenuItemConstructorOptions {
+function buildEditSubMenu(locale: string): IDarwinMenuItemConstructorOptions {
   return {
-    label: MenuStrings.edit_command,
+    label: Strings.getMenu(locale).edit_command,
     submenu: [
       {
-        label: MenuStrings.undo_command,
+        label: Strings.getMenu(locale).undo_command,
         accelerator: 'Command+Z',
         selector: 'undo:',
       },
       {
-        label: MenuStrings.redo_command,
+        label: Strings.getMenu(locale).redo_command,
         accelerator: 'Shift+Command+Z',
         selector: 'redo:',
       },
       { type: 'separator' },
       {
-        label: MenuStrings.cut_command,
+        label: Strings.getMenu(locale).cut_command,
         accelerator: 'Command+X',
         selector: 'cut:',
       },
       {
-        label: MenuStrings.copy_command,
+        label: Strings.getMenu(locale).copy_command,
         accelerator: 'Command+C',
         selector: 'copy:',
       },
       {
-        label: MenuStrings.paste_command,
+        label: Strings.getMenu(locale).paste_command,
         accelerator: 'Command+V',
         selector: 'paste:',
       },
       {
-        label: MenuStrings.select_all_command,
+        label: Strings.getMenu(locale).select_all_command,
         accelerator: 'Command+A',
         selector: 'selectAll:',
       },

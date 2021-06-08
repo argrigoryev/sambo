@@ -87,7 +87,7 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
+  const menuBuilder = new MenuBuilder(app.getLocale(), mainWindow);
   menuBuilder.buildMenu();
 
   // Open urls in the user's browser

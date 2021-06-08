@@ -1,13 +1,16 @@
 import { BrowserWindow, MenuItemConstructorOptions } from 'electron';
 
-import { MenuStrings } from '../Strings/strings';
+import Strings from '../Strings/strings';
 
-function buildViewSubMenu(window: BrowserWindow): MenuItemConstructorOptions {
+function buildViewSubMenu(
+  locale: string,
+  window: BrowserWindow
+): MenuItemConstructorOptions {
   return {
-    label: MenuStrings.view_command,
+    label: Strings.getMenu(locale).view_command,
     submenu: [
       {
-        label: MenuStrings.toggle_full_screen_command,
+        label: Strings.getMenu(locale).toggle_full_screen_command,
         accelerator: 'Ctrl+Command+F',
         click: () => {
           window.setFullScreen(!window.isFullScreen());

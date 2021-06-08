@@ -1,17 +1,20 @@
 import { BrowserWindow, MenuItemConstructorOptions } from 'electron';
 
-import { MenuStrings } from '../Strings/strings';
+import Strings from '../Strings/strings';
 
-function buildFileSubMenu(window: BrowserWindow): MenuItemConstructorOptions {
+function buildFileSubMenu(
+  locale: string,
+  window: BrowserWindow
+): MenuItemConstructorOptions {
   return {
-    label: MenuStrings.file_command,
+    label: Strings.getMenu(locale).file_command,
     submenu: [
       {
-        label: MenuStrings.open_command,
+        label: Strings.getMenu(locale).open_command,
         accelerator: 'Ctrl+O',
       },
       {
-        label: MenuStrings.close_command,
+        label: Strings.getMenu(locale).close_command,
         accelerator: 'Ctrl+W',
         click: () => {
           window.close();
