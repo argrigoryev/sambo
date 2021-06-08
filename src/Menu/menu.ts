@@ -4,6 +4,7 @@ import { IDarwinMenuItemConstructorOptions } from './interfaces';
 
 import helpSubMenu from './helpSubMenu';
 import aboutSubMenu from './aboutSubMenu';
+import editSubMenu from './editSubMenu';
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -47,22 +48,6 @@ export default class MenuBuilder {
   }
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
-    const subMenuEdit: IDarwinMenuItemConstructorOptions = {
-      label: 'Edit',
-      submenu: [
-        { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' },
-        { label: 'Redo', accelerator: 'Shift+Command+Z', selector: 'redo:' },
-        { type: 'separator' },
-        { label: 'Cut', accelerator: 'Command+X', selector: 'cut:' },
-        { label: 'Copy', accelerator: 'Command+C', selector: 'copy:' },
-        { label: 'Paste', accelerator: 'Command+V', selector: 'paste:' },
-        {
-          label: 'Select All',
-          accelerator: 'Command+A',
-          selector: 'selectAll:',
-        },
-      ],
-    };
     const subMenuViewDev: MenuItemConstructorOptions = {
       label: 'View',
       submenu: [
@@ -121,7 +106,7 @@ export default class MenuBuilder {
         ? subMenuViewDev
         : subMenuViewProd;
 
-    return [aboutSubMenu, subMenuEdit, subMenuView, subMenuWindow, helpSubMenu];
+    return [aboutSubMenu, editSubMenu, subMenuView, subMenuWindow, helpSubMenu];
   }
 
   buildDefaultTemplate() {
