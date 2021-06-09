@@ -7,14 +7,14 @@ function buildFileSubMenu(
   window: BrowserWindow
 ): MenuItemConstructorOptions {
   return {
-    label: Strings.getMenu(locale).file_command,
+    label: Strings.getMenuStrings(locale).file_command,
     submenu: [
       {
-        label: Strings.getMenu(locale).open_command,
+        label: Strings.getMenuStrings(locale).open_command,
         accelerator: 'Ctrl+O',
       },
       {
-        label: Strings.getMenu(locale).close_command,
+        label: Strings.getMenuStrings(locale).close_command,
         accelerator: 'Ctrl+W',
         click: () => {
           window.close();

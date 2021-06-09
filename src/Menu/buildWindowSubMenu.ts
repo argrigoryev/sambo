@@ -4,21 +4,21 @@ import Strings from '../Strings/strings';
 
 function buildWindowSubMenu(locale: string): IDarwinMenuItemConstructorOptions {
   return {
-    label: Strings.getMenu(locale).window_command,
+    label: Strings.getMenuStrings(locale).window_command,
     submenu: [
       {
-        label: Strings.getMenu(locale).minimize_command,
+        label: Strings.getMenuStrings(locale).minimize_command,
         accelerator: 'Command+M',
         selector: 'performMiniaturize:',
       },
       {
-        label: Strings.getMenu(locale).close_command,
+        label: Strings.getMenuStrings(locale).close_command,
         accelerator: 'Command+W',
         selector: 'performClose:',
       },
       { type: 'separator' },
       {
-        label: Strings.getMenu(locale).bring_all_to_front_command,
+        label: Strings.getMenuStrings(locale).bring_all_to_front_command,
         selector: 'arrangeInFront:',
       },
     ],

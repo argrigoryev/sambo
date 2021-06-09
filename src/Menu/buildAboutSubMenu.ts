@@ -9,27 +9,27 @@ function buildAboutSubMenu(locale: string): IDarwinMenuItemConstructorOptions {
     label: 'Electron',
     submenu: [
       {
-        label: `${Strings.getMenu(locale).about_command} ${app.getName()}`,
+        label: `${Strings.getMenuStrings(locale).about_command} ${app.getName()}`,
         selector: 'orderFrontStandardAboutPanel:',
       },
       { type: 'separator' },
       {
-        label: `${Strings.getMenu(locale).hide_command} ${app.getName()}`,
+        label: `${Strings.getMenuStrings(locale).hide_command} ${app.getName()}`,
         accelerator: 'Command+H',
         selector: 'hide:',
       },
       {
-        label: Strings.getMenu(locale).hide_others_command,
+        label: Strings.getMenuStrings(locale).hide_others_command,
         accelerator: 'Command+Shift+H',
         selector: 'hideOtherApplications:',
       },
       {
-        label: Strings.getMenu(locale).show_all_command,
+        label: Strings.getMenuStrings(locale).show_all_command,
         selector: 'unhideAllApplications:',
       },
       { type: 'separator' },
       {
-        label: Strings.getMenu(locale).quit_command,
+        label: Strings.getMenuStrings(locale).quit_command,
         accelerator: 'Command+Q',
         click: () => {
           app.quit();

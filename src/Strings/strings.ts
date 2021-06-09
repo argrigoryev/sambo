@@ -10,7 +10,7 @@ import ru_menu from './locales/ru/menu.json';
 export default class Strings {
   static ui: IStrings = new LocalizedStrings({ en, ru });
 
-  static getMenu(locale: string): IMenuStrings {
+  static getMenuStrings(locale: string): IMenuStrings {
     switch (locale) {
       case 'ru':
         return ru_menu;
