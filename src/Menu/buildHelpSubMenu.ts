@@ -29,7 +29,7 @@ function buildHelpSubMenu(locale: string): MenuItemConstructorOptions {
       {
         label: Strings.getMenuStrings(locale).report_problem_command,
         click() {
-          shell.openExternal(UrlHelper.reportProblemUrl);
+          shell.openExternal(UrlHelper.getLocalizedReportProblem(locale));
         },
       },
     ],
